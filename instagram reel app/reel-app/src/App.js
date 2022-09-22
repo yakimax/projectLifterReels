@@ -40,7 +40,7 @@ function PrivateRoute(props){
       render={
       (props)=>{
         return userObj != null ? <Component>{...props}</Component> : <Redirect to={'/login'}>{...props}</Redirect>
-      }
+        }
       }
     </Route>
   )
