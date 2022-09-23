@@ -82,3 +82,36 @@
   height: 80%;
   width: 40%;
 }
+
+.feed_header{
+  display: flex ;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+.upload_container{
+  border: 2px solid red;
+  background-color: white;
+  color: red;
+}
+
+.reels_container{
+
+}
+
+.main_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Appicon{
+  height: 3rem;
+}
+
+.profile_img{
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  object-fit: contain;
+}

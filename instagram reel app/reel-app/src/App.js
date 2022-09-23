@@ -12,7 +12,7 @@ function App() {
   return (
     <AuthContextProvider>
       <Switch>
-        <PrivateRoute path = "/feed" comp={<Feed></Feed>}>
+        <PrivateRoute path = "/feed" comp={Feed}>
         </PrivateRoute>
         <Route path = "/login">
           <Login></Login>
@@ -20,7 +20,7 @@ function App() {
         <Route path = "/signup">
           <Signup></Signup>
         </Route>
-        <PrivateRoute path = "/profile" comp={<Profile></Profile>}>
+        <PrivateRoute path = "/profile" comp={Profile}>
         </PrivateRoute>
         <Route>
           <PageNotFound></PageNotFound>
@@ -32,17 +32,17 @@ function App() {
 
 function PrivateRoute(props){
   let Component = props.comp;
-
+  console.log(props);
   let userObj = useContext(AuthContext);
   return(
-    <Route>
+    <Route
       {...props}
-      render={
+      render ={
       (props)=>{
-        return userObj != null ? <Component>{...props}</Component> : <Redirect to={'/login'}>{...props}</Redirect>
+        return userObj != null ? <Component {...props}/> : <Redirect to='/login' {...props}/>
         }
       }
-    </Route>
+    ></Route>
   )
 }
 
