@@ -5,6 +5,8 @@ import { AuthContext } from '../context/AuthContext'
 function Profile() {
   let userObj = useContext(AuthContext);
   const [loader ,setLoader] = useState(false);
+  
+  
   return (
     <>
     {
