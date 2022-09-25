@@ -32,7 +32,6 @@ function App() {
 
 function PrivateRoute(props){
   let Component = props.comp;
-  console.log(props);
   let userObj = useContext(AuthContext);
   return(
     <Route
