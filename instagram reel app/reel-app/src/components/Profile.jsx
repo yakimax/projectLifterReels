@@ -1,15 +1,23 @@
+import {getDoc } from 'firebase/firestore';
 import React, { useContext, useState } from 'react'
 import { useEffect } from 'react';
 import '../App.css'
 import { AuthContext } from '../context/AuthContext'
+import { db } from '../firebase'
 
 function Profile() {
   let userObj = useContext(AuthContext);
+  const [user,setUser] = useState();
   const [loader ,setLoader] = useState(false);
   
-  useEffect(){
-    
-  }
+  useEffect(()=>{
+    (async function(){
+      var docRef = db.collection("users").doc(userObj.uid);
+      let userObject = await getDoc(docRef);
+      setUser(userObject.data());
+      setLoader(false);
+    })()
+})
   return (
     <>
     {

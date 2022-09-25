@@ -23,11 +23,12 @@ let displayDetails = async ()=>{
     setLoader(true) ;
     let usersignUp = await createUserWithEmailAndPassword(auth,email,pass) ;
     setUser(usersignUp.user);
-    const docRef = await addDoc(collection(db, "users"), {
+    const docRef = await addDoc(collection(db, "users",usersignUp.user.uid), {
       email,
       pass,
       reelsIds:"",
-      userId : usersignUp.user.uid
+      userId : usersignUp.user.uid,
+      profileImage : ""
     })
   
   }catch(err){
