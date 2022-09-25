@@ -6,9 +6,13 @@ import { AuthContext } from '../context/AuthContext'
 import { db } from '../firebase'
 
 function Profile() {
+  
+  
   let userObj = useContext(AuthContext);
   const [user,setUser] = useState();
   const [loader ,setLoader] = useState(true);
+
+
   
   useEffect(()=>{
     (async function(){
@@ -18,6 +22,8 @@ function Profile() {
       setLoader(false);
     })()
   },[]);
+
+
   return (
     <>
     { loader ? <div> getting data </div> :
